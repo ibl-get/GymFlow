@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="نظام إدارة النادي الرياضي - تتبع الأعضاء، إدارة الاشتراكات، ومراقبة الحضور" />
+    <meta name="keywords" content="نادي رياضي, إدارة النوادي, نظام إدارة, رياضة, جيم, صالة رياضية" />
+    <meta name="author" content="نادي جليدة الرياضي" />
+    <meta name="theme-color" content="#1e3a8a" />
+    
+    <!-- Route handling meta tags -->
+    <meta name="robots" content="index, follow">
+    <base href="/">
+    
+    <title>نادي جليدة الرياضي - نظام الإدارة</title>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="نادي جليدة الرياضي - نظام الإدارة" />
+    <meta property="og:description" content="نظام إدارة متكامل للنادي الرياضي - إدارة الأعضاء والاشتراكات والحضور" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Import Cairo font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- PWA Tags -->
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Route handling script -->
+    <script>
+      // Handle direct URL access by redirecting all routes to index.html
+      (function() {
+        const path = window.location.pathname;
+        const isDirectAccess = !window.location.hash && path !== '/';
+        if (isDirectAccess) {
+          window.history.replaceState(null, '', '/');
+        }
+      })();
+    </script>
+    
+    <!-- Additional CSS -->
+    <style>
+      /* Ensure the loading state looks clean */
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

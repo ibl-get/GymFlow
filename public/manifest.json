@@ -1,0 +1,29 @@
+{
+  "short_name": "نادي جليدة",
+  "name": "نادي جليدة الرياضي - نظام الإدارة",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1e3a8a",
+  "background_color": "#581c87",
+  "dir": "rtl",
+  "lang": "ar",
+  "description": "نظام إدارة متكامل للنادي الرياضي - إدارة الأعضاء والاشتراكات والحضور",
+  "orientation": "portrait-primary"
+}
