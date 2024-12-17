@@ -1,8 +1,23 @@
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, NavLinkProps } from 'react-router-dom'
 import { LayoutDashboard, Users, UserCheck, Settings, LogOut } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { getGymSettings } from '../data/settings'
 import type { GymSettings } from '../types/GymSettings'
+
+const NavbarLink: React.FC<NavLinkProps> = ({ children, to }) => {
+  return (
+    <NavLink 
+      to={to}
+      className={({ isActive }: { isActive: boolean }) => 
+        `flex items-center gap-2 text-white opacity-75 hover:opacity-100 group ${isActive ? 'opacity-100' : ''}`
+      }
+      role="menuitem"
+      aria-current={({ isActive }: { isActive: boolean }) => isActive ? 'page' : undefined}
+    >
+      {children}
+    </NavLink>
+  );
+};
 
 const Navbar = () => {
   const [settings, setSettings] = useState<GymSettings>(getGymSettings())
@@ -35,53 +50,25 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-8" role="menubar">
-            <NavLink 
-              to="/" 
-              className={({ isActive }) => 
-                `flex items-center gap-2 text-white opacity-75 hover:opacity-100 group ${isActive ? 'opacity-100' : ''}`
-              }
-              role="menuitem"
-              aria-current={({ isActive }) => isActive ? 'page' : undefined}
-            >
+            <NavbarLink to="/">
               <span>لوحة التحكم</span>
               <LayoutDashboard className="w-5 h-5 transition-colors group-hover:text-blue-400" aria-hidden="true" />
-            </NavLink>
+            </NavbarLink>
 
-            <NavLink 
-              to="/members" 
-              className={({ isActive }) => 
-                `flex items-center gap-2 text-white opacity-75 hover:opacity-100 group ${isActive ? 'opacity-100' : ''}`
-              }
-              role="menuitem"
-              aria-current={({ isActive }) => isActive ? 'page' : undefined}
-            >
+            <NavbarLink to="/members">
               <span>الأعضاء</span>
               <Users className="w-5 h-5 transition-colors group-hover:text-purple-400" aria-hidden="true" />
-            </NavLink>
+            </NavbarLink>
 
-            <NavLink 
-              to="/present" 
-              className={({ isActive }) => 
-                `flex items-center gap-2 text-white opacity-75 hover:opacity-100 group ${isActive ? 'opacity-100' : ''}`
-              }
-              role="menuitem"
-              aria-current={({ isActive }) => isActive ? 'page' : undefined}
-            >
+            <NavbarLink to="/present">
               <span>الحضور</span>
               <UserCheck className="w-5 h-5 transition-colors group-hover:text-green-400" aria-hidden="true" />
-            </NavLink>
+            </NavbarLink>
 
-            <NavLink 
-              to="/settings" 
-              className={({ isActive }) => 
-                `flex items-center gap-2 text-white opacity-75 hover:opacity-100 group ${isActive ? 'opacity-100' : ''}`
-              }
-              role="menuitem"
-              aria-current={({ isActive }) => isActive ? 'page' : undefined}
-            >
+            <NavbarLink to="/settings">
               <span>الإعدادات</span>
               <Settings className="w-5 h-5 transition-colors group-hover:text-orange-400" aria-hidden="true" />
-            </NavLink>
+            </NavbarLink>
 
             <button
               onClick={handleLogout}

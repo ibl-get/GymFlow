@@ -1,10 +1,11 @@
+import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Key, Lock } from 'lucide-react'
 import { getGymSettings } from '../data/settings'
 import type { GymSettings } from '../types/GymSettings'
 
-const LockScreen = () => {
+const LockScreen: React.FC = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [settings, setSettings] = useState<GymSettings>(getGymSettings())

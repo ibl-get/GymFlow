@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Upload, Save, Palette, Image as ImageIcon, X, Key } from 'lucide-react'
 import { getGymSettings, updateGymSettings } from '../data/settings'
 import type { GymSettings } from '../types/GymSettings'
