@@ -65,14 +65,21 @@ const LockScreen: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    const storedPassword = localStorage.getItem('gymPassword')
+    // كلمة المرور الافتراضية
+    const defaultPassword = 'gymflow2024'
     
-    if (password.trim() === storedPassword) {
+    if (password === defaultPassword) {
+      // تسجيل الدخول الناجح
       localStorage.setItem('isAuthenticated', 'true')
-      navigate('/')
+      setIsTransitioning(true)
+      
+      // الانتقال للصفحة الرئيسية بعد تأخير قصير
+      setTimeout(() => {
+        navigate('/')
+      }, 300)
     } else {
+      // عرض رسالة خطأ
       setError('كلمة المرور غير صحيحة')
-      setPassword('')
     }
   }
 

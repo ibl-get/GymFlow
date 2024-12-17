@@ -19,11 +19,8 @@ const ImageCropper = ({
 }: ImageCropperProps) => {
   const [crop, setCrop] = useState<Crop>({
     unit: '%',
-    width: 100,
-    height: 100,
-    x: 0,
-    y: 0,
-    aspect: aspectRatio
+    width: 50,
+    aspect: aspectRatio // تحديد النسبة بشكل صريح
   })
   
   const imgRef = useRef<HTMLImageElement>(null)

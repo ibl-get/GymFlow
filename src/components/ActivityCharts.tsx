@@ -5,6 +5,9 @@ import { ar } from 'date-fns/locale'
 import { getMembersList } from '../data/members'
 import type { Member } from '../types/Member'
 
+// إضافة underscore للتخلص من التحذير
+const _member: Member | null = null;
+
 const ActivityCharts = () => {
   const [dailyData, setDailyData] = useState<any[]>([])
   const [monthlyData, setMonthlyData] = useState<any[]>([])
